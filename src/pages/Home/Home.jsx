@@ -1,4 +1,5 @@
 import Slider from "@/components/Slider/Slider";
+import Categories from "@/components/Categories/Categories";
 import FeaturedProducts from "@/components/FeaturedProducts/FeaturedProducts";
 
 import "./Home.scss";
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="home-page">
       <Slider />
       <FeaturedProducts type="Featured" description={FeaturedDescription} />
+      <Categories />
       <FeaturedProducts type="Trending" description={TrendingDescription} />
     </div>
   );
