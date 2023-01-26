@@ -1,5 +1,10 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
+// components
+import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
+
+// pages
 import Home from "@/pages/Home/Home";
 import Product from "@/pages/Product/Product";
 import Products from "@/pages/Products/Products";
@@ -7,7 +12,9 @@ import Products from "@/pages/Products/Products";
 const Layout = () => {
   return (
     <div className="app">
+      <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
