@@ -1,3 +1,10 @@
+import Slider from "@/components/Slider/Slider";
+import "./Home.scss";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div className="home-page">
+      <Slider />
+    </div>
+  );
 }
