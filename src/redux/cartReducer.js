@@ -15,14 +15,17 @@ export const cartSlice = createSlice({
       );
 
       if (item) {
-        item.quantity += 1;
+        // limit quantity to 10
+        if (item.quantity < 10) {
+          item.quantity += 1;
+        }
       } else {
         state.products.push(action.payload);
       }
     },
     removeFromCart: (state, action) => {
       state.products = state.products.filter(
-        (product) => product.id !== action.payload.id
+        (product) => product.id !== action.payload
       );
     },
     resetCart: (state) => {

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import Cart from "@/components/Cart/Cart";
 
@@ -12,6 +13,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import "./Navbar.scss";
 
 export default function Navbar() {
+  const cartItemLength = useSelector((state) => state.cart.products.length);
   const [open, setOpen] = useState(false);
 
   return (
@@ -74,7 +76,7 @@ export default function Navbar() {
             <FavoriteBorderOutlinedIcon />
             <div className="cartIcon" onClick={() => setOpen(!open)}>
               <ShoppingCartOutlinedIcon />
-              <span>0</span>
+              <span>{cartItemLength}</span>
             </div>
           </div>
         </div>
