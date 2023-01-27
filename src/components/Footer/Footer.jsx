@@ -66,6 +66,8 @@ export default function Footer() {
           <span className="logo">BAZAAR BLISS</span>
           <span className="copyright">
             © Copyright 2023. All Rights Reserved
+            <br />
+            Made with <span className="heart">❤</span> by {"Sajjan Karna"}
           </span>
         </div>
         <div className="right">

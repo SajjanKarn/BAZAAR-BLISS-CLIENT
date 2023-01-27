@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
-import Card from "../Card/Card";
+import useFetch from "@/hooks/useFetch";
+import Card from "@/components/Card/Card";
 
 import "./FeaturedProducts.scss";
-import useFetch from "../../hooks/useFetch";
 
 export default function FeaturedProducts({ type, description }) {
   const { data, loading, error } = useFetch(

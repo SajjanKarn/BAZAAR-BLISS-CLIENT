@@ -1,13 +1,33 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import useFetch from "@/hooks/useFetch";
 
 import List from "@/components/List/List";
+
 import "./Products.scss";
 
 export default function Products() {
   const catId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
+  const [selectedSubCategories, setSelectedSubCategories] = useState([]);
   const [sort, setSort] = useState(null);
+
+  const { data, loading, error } = useFetch(
+    `/sub-categories?[filters][categories][id][$eq]=${catId}`
+  );
+
+  const handleCategoryChange = (e) => {
+    const value = e.target.value;
+    const isChecked = e.target.checked;
+
+    setSelectedSubCategories(
+      isChecked
+        ? [...selectedSubCategories, value]
+        : selectedSubCategories.filter((item) => item !== value)
+    );
+  };
+
+  console.log(selectedSubCategories);
 
   return (
     <div className="products">
@@ -15,18 +35,17 @@ export default function Products() {
         <div className="filterItem">
           <h2>Product Categories</h2>
 
-          <div className="inputItem">
-            <input type="checkbox" id="1" value={1} />
-            <label htmlFor="1">Shoes</label>
-          </div>
-          <div className="inputItem">
-            <input type="checkbox" id="2" value={2} />
-            <label htmlFor="2">Skirts</label>
-          </div>
-          <div className="inputItem">
-            <input type="checkbox" id="3" value={3} />
-            <label htmlFor="3">Coats</label>
-          </div>
+          {data?.map((item) => (
+            <div className="inputItem" key={item?.id}>
+              <input
+                type="checkbox"
+                id={item.id}
+                value={item.id}
+                onChange={handleCategoryChange}
+              />
+              <label htmlFor={item.id}>{item?.attributes?.title}</label>
+            </div>
+          ))}
         </div>
 
         <div className="filterItem">
@@ -72,7 +91,12 @@ export default function Products() {
           src="https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600"
           alt="catImg"
         />
-        <List catId={catId} maxPrice={maxPrice} sort={sort} />
+        <List
+          catId={catId}
+          maxPrice={maxPrice}
+          sort={sort}
+          subCats={selectedSubCategories}
+        />
       </div>
     </div>
   );
