@@ -36,6 +36,8 @@ Bazaar Bliss is a Ecommerce Website for selling products online. It is built usi
 
 ### Setup
 
+Before you start, make sure you have created a MySQL database and a Strapi backend server.
+
 > install npm packages
 
 ```shell
@@ -55,6 +57,16 @@ $ npm start or yarn start
 - Clone this repo to your local machine using `git clone https://github.com/SajjanKarn/BAZAAR-BLISS-CLIENT.git`
 
 ### Setup
+
+Before you start, make sure you have created a MySQL database and a Strapi backend server.
+
+Create a .env.local file in the root directory and add the following:
+
+```shell
+VITE_API_TOKEN=YOUR_STRAPI_CUSTOM_API_TOKEN
+VITE_API_URL=YOUR_STRAPI_API_URL
+VITE_API_UPLOAD_URL=YOUR_STRAPI_API_UPLOAD_URL
+```
 
 > install npm packages
 
