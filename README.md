@@ -1,6 +1,6 @@
 # BAZAAR BLISS - A Ecommerce Website for selling products online
 
-![Bazaar Bliss]("https://res.cloudinary.com/di8g6lksr/image/upload/v1674817268/collage_yzw1jn.png")
+![Bazaar Bliss](https://res.cloudinary.com/di8g6lksr/image/upload/v1674817268/collage_yzw1jn.png)
 
 ## Table of Contents
 
